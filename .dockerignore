@@ -1,0 +1,12 @@
+.git
+node_modules
+dist
+dist-evals
+.superpowers
+*.sqlite*
+*.png
+*.tierlist.json
+artifacts
+data
+.env*
+*.tgz

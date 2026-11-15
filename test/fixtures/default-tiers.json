@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "title": "Games 🎮 & <more>",
+  "tiers": [
+    {
+      "id": "S",
+      "label": "S",
+      "color": "#dc2626"
+    },
+    {
+      "id": "A",
+      "label": "A",
+      "color": "#f97316"
+    },
+    {
+      "id": "B",
+      "label": "B",
+      "color": "#eab308"
+    },
+    {
+      "id": "C",
+      "label": "C",
+      "color": "#22c55e"
+    },
+    {
+      "id": "D",
+      "label": "D",
+      "color": "#3b82f6"
+    }
+  ],
+  "items": [
+    {
+      "id": "i1",
+      "label": "Game 1"
+    },
+    {
+      "id": "i2",
+      "label": "Game 2"
+    },
+    {
+      "id": "i3",
+      "label": "Game 3"
+    },
+    {
+      "id": "i4",
+      "label": "Game 4"
+    },
+    {
+      "id": "i5",
+      "label": "Game 5"
+    },
+    {
+      "id": "i6",
+      "label": "Game 6"
+    },
+    {
+      "id": "i7",
+      "label": "Game 7"
+    },
+    {
+      "id": "i8",
+      "label": "Game 8"
+    },
+    {
+      "id": "i9",
+      "label": "Game 9"
+    },
+    {
+      "id": "i10",
+      "label": "Game 10"
+    },
+    {
+      "id": "i11",
+      "label": "Game 11"
+    },
+    {
+      "id": "i12",
+      "label": "Game 12"
+    },
+    {
+      "id": "i13",
+      "label": "Game 13"
+    },
+    {
+      "id": "i14",
+      "label": "Game 14"
+    },
+    {
+      "id": "i15",
+      "label": "Game 15"
+    },
+    {
+      "id": "i16",
+      "label": "Game 16"
+    },
+    {
+      "id": "i17",
+      "label": "Game 17"
+    },
+    {
+      "id": "i18",
+      "label": "Game 18"
+    },
+    {
+      "id": "i19",
+      "label": "Game 19"
+    },
+    {
+      "id": "i20",
+      "label": "Game 20"
+    },
+    {
+      "id": "i21",
+      "label": "Game 21"
+    },
+    {
+      "id": "i22",
+      "label": "Game 22"
+    },
+    {
+      "id": "i23",
+      "label": "Game 23"
+    },
+    {
+      "id": "i24",
+      "label": "Game 24"
+    },
+    {
+      "id": "i25",
+      "label": "Game 25"
+    },
+    {
+      "id": "i26",
+      "label": "Game 26"
+    },
+    {
+      "id": "i27",
+      "label": "Game 27"
+    },
+    {
+      "id": "i28",
+      "label": "Game 28"
+    },
+    {
+      "id": "i29",
+      "label": "Game 29"
+    },
+    {
+      "id": "i30",
+      "label": "Game 30"
+    }
+  ],
+  "placements": {
+    "S": [
+      "i3",
+      "i1"
+    ],
+    "A": [
+      "i2"
+    ],
+    "B": [],
+    "C": [
+      "i10",
+      "i9",
+      "i8"
+    ],
+    "D": []
+  }
+}

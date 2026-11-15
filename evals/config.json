@@ -1,0 +1,7 @@
+{
+  "agentModel": "sonnet",
+  "judgeModel": "opus",
+  "timeoutMs": 600000,
+  "concurrency": 3,
+  "baseUrl": "http://localhost:3000"
+}

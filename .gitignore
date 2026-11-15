@@ -1,0 +1,10 @@
+node_modules
+dist
+*.png
+*.tierlist.json
+dist-evals
+evals/results/
+artifacts/
+data/
+*.sqlite*
+*.tgz

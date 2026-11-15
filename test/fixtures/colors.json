@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "title": "Colors",
+  "tiers": [
+    {
+      "id": "t1",
+      "label": "T0",
+      "color": "#ef4444"
+    },
+    {
+      "id": "t2",
+      "label": "T1",
+      "color": "#fbbf24"
+    },
+    {
+      "id": "t3",
+      "label": "T2",
+      "color": "#1e3a8a"
+    },
+    {
+      "id": "t4",
+      "label": "T3",
+      "color": "#dc2626"
+    },
+    {
+      "id": "t5",
+      "label": "T4",
+      "color": "#f00"
+    },
+    {
+      "id": "t6",
+      "label": "T5",
+      "color": "#ff000080"
+    },
+    {
+      "id": "t7",
+      "label": "T6",
+      "color": "rgb(239, 68, 68)"
+    },
+    {
+      "id": "t8",
+      "label": "T7",
+      "color": "rgb(10 20 30 / 50%)"
+    },
+    {
+      "id": "t9",
+      "label": "T8",
+      "color": "hsl(120, 50%, 40%)"
+    },
+    {
+      "id": "t10",
+      "label": "T9",
+      "color": "hsl(0.5turn 50% 50%)"
+    }
+  ],
+  "items": [],
+  "placements": {
+    "t1": [],
+    "t2": [],
+    "t3": [],
+    "t4": [],
+    "t5": [],
+    "t6": [],
+    "t7": [],
+    "t8": [],
+    "t9": [],
+    "t10": []
+  }
+}

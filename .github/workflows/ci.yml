@@ -1,0 +1,18 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: node:22-bookworm
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm run package:plugin
+      - run: npm pack --dry-run --json > /tmp/pack.json
+      - name: Verify archive contents
+        run: node -e 'const p=require("/tmp/pack.json")[0]; if(p.files.some(f=>! /^(dist\/|docs\/|skills\/|distribution\/|scripts\/|package.json$|README.md$|LICENSE$|CHANGELOG.md$|SECURITY.md$|server.json$)/.test(f.path))) process.exit(1)' 

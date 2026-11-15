@@ -1,0 +1,174 @@
+# Eval cases. `expect` is checked by evals/checks.ts; see evals/types.ts for the fields.
+- id: simple-en-pixar
+  category: simple
+  lang: en
+  prompt: Make a tier list of Pixar movies.
+  expect:
+    items: { min: 8, max: 40 }
+    tiers: { min: 3, max: 8 }
+    template: none
+
+- id: simple-ru-nolan
+  category: simple
+  lang: ru
+  prompt: Сделай тир-лист фильмов Кристофера Нолана.
+  expect:
+    items: { min: 8, max: 20 }
+    tiers: { min: 3, max: 8 }
+
+- id: custom-3-ru
+  category: custom-tiers
+  lang: ru
+  prompt: "Сделай тир-лист языков программирования для новичка. Тиры: «учить», «можно», «не надо»."
+  expect:
+    tiers: { labels: [учить, можно, не надо] }
+    items: { min: 8, max: 40 }
+
+- id: custom-7-en
+  category: custom-tiers
+  lang: en
+  prompt: "Tier list of coffee drinks with exactly 7 tiers: Divine, Excellent, Good, OK, Meh, Bad, Terrible."
+  expect:
+    tiers: { labels: [Divine, Excellent, Good, OK, Meh, Bad, Terrible] }
+    items: { min: 8, max: 40 }
+
+- id: custom-colors-ru
+  category: custom-tiers
+  lang: ru
+  prompt: "Тир-лист мессенджеров, три тира: «Любимое» зелёным цветом, «Нормально» жёлтым, «Бросить» красным."
+  expect:
+    tiers: { labels: [Любимое, Нормально, Бросить], colors: [green, yellow, red] }
+    items: { min: 6, max: 30 }
+
+- id: template-pizza-ru
+  category: template-found
+  lang: ru
+  prompt: Сделай тир-лист пиццы.
+  expect:
+    template: pizza-styles
+    items: { min: 10, max: 40 }
+
+- id: template-dota-en
+  category: template-found
+  lang: en
+  prompt: Dota 2 heroes tier list.
+  expect:
+    template: dota-2-heroes
+    items: { min: 20, max: 130 }
+
+- id: notemplate-marvel-en
+  category: no-template
+  lang: en
+  prompt: Tier list of Marvel movies.
+  expect:
+    template: none
+    items: { min: 10, max: 60 }
+
+- id: notemplate-anime-ru
+  category: no-template
+  lang: ru
+  prompt: Сделай тир-лист спортивных аниме.
+  expect:
+    template: none
+    items: { min: 8, max: 40 }
+
+- id: exact-12-ru
+  category: exact-count
+  lang: ru
+  prompt: Тир-лист европейских столиц, ровно 12 городов.
+  expect:
+    items: { exact: 12 }
+
+- id: exact-15-en
+  category: exact-count
+  lang: en
+  prompt: Make a tier list of exactly 15 famous painters.
+  expect:
+    items: { exact: 15 }
+
+- id: edit-en-disney
+  category: edit
+  lang: en
+  prompt: Tier list of 10 Disney animated classics.
+  followup: Move The Lion King to S and add Moana, then give me the updated link and image.
+  expect:
+    final:
+      placed: [{ item: Lion King, tier: S }]
+      present: [Moana]
+
+- id: edit-ru-capitals
+  category: edit
+  lang: ru
+  prompt: Тир-лист 10 столиц Европы.
+  followup: Убери Париж, перенеси Рим в тир S и обнови ссылку и картинку.
+  expect:
+    final:
+      absent: [Париж]
+      placed: [{ item: Рим, tier: S }]
+
+- id: arrange-ru
+  category: user-arrangement
+  lang: ru
+  prompt: "Сделай тир-лист из этих языков и расставь так: S — Python, A — Go, B — Java, C — PHP, D — Perl."
+  expect:
+    items: { exact: 5 }
+    final:
+      placed:
+        - { item: Python, tier: S }
+        - { item: Go, tier: A }
+        - { item: Java, tier: B }
+        - { item: PHP, tier: C }
+        - { item: Perl, tier: D }
+
+- id: arrange-en
+  category: user-arrangement
+  lang: en
+  prompt: "Put these foods in a tier list with tiers S, A, C, F — S: Pizza, Sushi; A: Burgers; C: Salad; F: Liver. Add nothing else."
+  expect:
+    tiers: { labels: [S, A, C, F] }
+    items: { exact: 5 }
+    final:
+      placed:
+        - { item: Pizza, tier: S }
+        - { item: Sushi, tier: S }
+        - { item: Burgers, tier: A }
+        - { item: Salad, tier: C }
+        - { item: Liver, tier: F }
+
+- id: limit-300-en
+  category: limits
+  lang: en
+  prompt: Make a tier list of 300 different dog breeds. I want all 300 on the board.
+  expect:
+    items: { min: 100, max: 200 }
+    answer_matches: ["200"]
+
+- id: images-cars-ru
+  category: images
+  lang: ru
+  prompt: Сделай тир-лист автомарок с картинками.
+  expect:
+    images: {}
+    items: { min: 8, max: 40 }
+
+- id: images-pokemon-en
+  category: images
+  lang: en
+  prompt: Tier list of Pokémon starters from all generations, with an image on every card.
+  expect:
+    images: {}
+    items: { min: 8, max: 40 }
+
+- id: ambiguous-empty-ru
+  category: ambiguous
+  lang: ru
+  prompt: Сделай тир-лист.
+  expect:
+    clarify: true
+
+- id: ambiguous-favorites-en
+  category: ambiguous
+  lang: en
+  prompt: Make a tier list of my favorite things.
+  expect:
+    clarify: true

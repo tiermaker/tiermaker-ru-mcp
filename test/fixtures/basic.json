@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "title": "Любимые фрукты",
+  "templateSlug": "fruit-template",
+  "tiers": [
+    {
+      "id": "top",
+      "label": "Лучшее",
+      "color": "#ef4444"
+    },
+    {
+      "id": "rest",
+      "label": "Остальное",
+      "color": "#3b82f6"
+    }
+  ],
+  "items": [
+    {
+      "id": "apple",
+      "label": "Яблоко",
+      "imageUrl": "https://images.example/apple.png"
+    },
+    {
+      "id": "pear",
+      "label": "Груша"
+    },
+    {
+      "id": "plum",
+      "label": "Слива",
+      "imageUrl": "http://images.example/plum.jpg"
+    }
+  ],
+  "placements": {
+    "top": [
+      "apple"
+    ],
+    "rest": [
+      "plum"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+name: Prepare release archive
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    container: node:22-bookworm
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run lint && npm test && npm run build
+      - run: npm pack
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tiermaker-ru-mcp
+          path: '*.tgz'
+# Deliberately no npm publish, tag trigger, or automatic public release.

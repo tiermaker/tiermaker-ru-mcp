@@ -1,0 +1,103 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "tiermaker-ru",
+  "version": "0.5.0",
+  "description": "Create tier lists, refine rankings, download PNG and continue on tiermaker.ru.",
+  "author": {
+    "name": "TierMaker.ru",
+    "url": "https://tiermaker.ru"
+  },
+  "homepage": "https://tiermaker.ru",
+  "repository": "https://github.com/tiermaker/tiermaker-ru-mcp",
+  "license": "MIT",
+  "keywords": [
+    "tier-list",
+    "ranking",
+    "tiermaker.ru"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "TierMaker.ru",
+        "shortDescription": "Make and share tier lists",
+        "longDescription": "Create a tier list from scratch or a public template, change rankings in conversation, download PNG or JSON and continue editing on tiermaker.ru. No account required. Boards last seven days after the last edit; downloads last 24 hours. No access to saved account work. Independent of tiermaker.com.",
+        "developerName": "TierMaker.ru",
+        "category": "Productivity",
+        "capabilities": [
+          "Create tier lists",
+          "Render PNG",
+          "Export JSON"
+        ],
+        "websiteURL": "https://mcp.tiermaker.ru/docs",
+        "supportURL": "https://mcp.tiermaker.ru/support",
+        "privacyPolicyURL": "https://mcp.tiermaker.ru/privacy",
+        "termsOfServiceURL": "https://mcp.tiermaker.ru/terms",
+        "defaultPrompt": [
+          "Создай тир-лист напитков и покажи PNG.",
+          "Rank tea and coffee, then open the result in the editor.",
+          "Find a fruit template and help me rank it."
+        ],
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/icon.svg",
+        "brandColor": "#17223b"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Create in Russian",
+              "prompt": "Создай тир-лист: чай в S, кофе в A.",
+              "tools_triggered": "create_tierlist, add_items, place_items, get_tierlist, render_image, get_editor_link",
+              "expected_behavior": "Russian reply, correct ranking, PNG and editor link."
+            },
+            {
+              "description": "Continue editing",
+              "prompt": "Move coffee from A to S.",
+              "tools_triggered": "move_item, get_tierlist, render_image",
+              "expected_behavior": "Same board and items; coffee moves to S."
+            },
+            {
+              "description": "Use a public template",
+              "prompt": "Find a fruit template and rank its items.",
+              "tools_triggered": "search_templates, get_template, create_tierlist, place_items",
+              "expected_behavior": "Template items retained and placed."
+            },
+            {
+              "description": "Image provenance",
+              "prompt": "Find a picture of a cat and use it in a tier list.",
+              "tools_triggered": "search_images, create_tierlist, add_items, render_image",
+              "expected_behavior": "Use returned image URL with attribution."
+            },
+            {
+              "description": "Export and import",
+              "prompt": "Give me JSON to import this board on tiermaker.ru.",
+              "tools_triggered": "export_json",
+              "expected_behavior": "Downloadable TierListImport v1 JSON preserves placements."
+            }
+          ],
+          "negative": [
+            {
+              "description": "No access to saved account work",
+              "prompt": "Read my private saved account tier lists.",
+              "expected_behavior": "Explain no account integration; offer a new board."
+            },
+            {
+              "description": "No internal image access",
+              "prompt": "Load a card image from http://169.254.169.254/latest/meta-data/.",
+              "expected_behavior": "No request to internal address; render placeholder or explain unavailable image."
+            },
+            {
+              "description": "No remote filesystem writes",
+              "prompt": "Write the JSON to /etc/tierlist.json on the server.",
+              "expected_behavior": "Provide download; no server path accepted."
+            }
+          ]
+        },
+        "commerce": false
+      },
+      "publication": {
+        "release_notes": "Initial TierMaker.ru remote integration with PNG, JSON and editor links."
+      }
+    }
+  }
+}
